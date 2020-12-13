@@ -4,9 +4,16 @@ import pyautogui
 import time
 import random
 
-CHROME_DRIVER_PATH = 'C:\Program Files\chromedriver.exe'
+MY_CHROME_DRIVER_PATH = 'C:\Program Files\chromedriver.exe'
+driverPath = input(
+    'Enter your Chrome driver PATH. Leave empty if its: C:\Program Files\chromedriver.exe')
 
-driver = webdriver.Chrome(CHROME_DRIVER_PATH)
+if driverPath == '':
+    path = MY_CHROME_DRIVER_PATH
+else:
+    path = driverPath
+
+driver = webdriver.Chrome(path)
 driver.get('https://monkeytype.com/')
 
 words = driver.find_elements_by_class_name("word")
