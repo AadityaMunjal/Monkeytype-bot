@@ -17,19 +17,13 @@ driver.get('https://monkeytype.com/')
 
 words = driver.find_elements_by_class_name("word")
 
-print(f'length of words: {len(words)}')
 print('starting!')
 
 
 for word in words:
+    keyboard.type(word.text)
 
-    for i in range(len(word.text)):
-        startTime = time.time()
-        letter = word.text[i]
-        keyboard.type(letter)
-        endTime = time.time()
-        print(f'Loop took {endTime - startTime}')
-
+    # Press space
     keyboard.press(Key.space)
     keyboard.release(Key.space) 
 
