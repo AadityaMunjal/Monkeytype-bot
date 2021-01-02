@@ -1,8 +1,6 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import pyautogui
+from pynput.keyboard import Key, Controller
 import time
-import random
 
 MY_CHROME_DRIVER_PATH = 'C:\Program Files\chromedriver.exe'
 driverPath = input(
@@ -13,6 +11,7 @@ if driverPath == '':
 else:
     path = driverPath
 
+keyboard = Controller()
 driver = webdriver.Chrome(path)
 driver.get('https://monkeytype.com/')
 
@@ -27,18 +26,12 @@ for word in words:
     for i in range(len(word.text)):
         startTime = time.time()
         letter = word.text[i]
-        # waiting for random secs so that it dosent know that its a BOT ;)
-        # time.sleep(random.randint(1, 2) / 100)
-        # pyautogui.press(letter)
-        pyautogui.write(letter)
+        keyboard.type(letter)
         endTime = time.time()
         print(f'Loop took {endTime - startTime}')
 
-    pyautogui.press('space')
+    keyboard.press(Key.space)
+    keyboard.release(Key.space) 
 
 
 print('done!')
-
-
-time.sleep(5)
-driver.quit()
