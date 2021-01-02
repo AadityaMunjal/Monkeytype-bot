@@ -1,6 +1,5 @@
 from selenium import webdriver
 from pynput.keyboard import Key, Controller
-import time
 
 MY_CHROME_DRIVER_PATH = 'C:\Program Files\chromedriver.exe'
 driverPath = input(
