@@ -1,8 +1,6 @@
 # Monkeytype-bot
-### Its a bot that types on monkeytype.
 
 #### Avg wpm: 200wpm. Better and Faster than ever!
----
 ### How To 
 1. Install ChromeDriver
 2. `pip install -r requirements.txt`
